@@ -1,0 +1,49 @@
+<body>
+
+    <h1>AI Student OS 🚀</h1>
+
+    <!-- Add Task Form -->
+    <form method="POST">
+
+        <input type="text" name="task" placeholder="Enter your task">
+
+        <button type="submit">
+            Add Task
+        </button>
+
+    </form>
+
+    <br>
+
+    <!-- Clear Task Form -->
+    <form method="POST">
+
+        <button type="submit" name="clear" value="true">
+            Clear Tasks
+        </button>
+
+    </form>
+
+    <!-- Task List -->
+    <ul>
+
+        {% for task in tasks %}
+
+            <li>
+                {{ task }}
+                <form method="POST" style="display:inline;">
+
+                    <button type="submit" name="delete" value="{{loop.index0}}">
+
+                        Delete
+                        
+                    </button>
+                </form>
+            </li>
+
+        {% endfor %}
+
+    </ul>
+
+</body>
+            
