@@ -1,49 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AI Student OS</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
 <body>
 
-    <h1>AI Student OS 🚀</h1>
+    <div class="container">
 
-    <!-- Add Task Form -->
-    <form method="POST">
+        <h1>AI Student OS 🚀</h1>
 
-        <input type="text" name="task" placeholder="Enter your task">
+        <!-- ADD TASK FORM -->
+        <form method="POST">
 
-        <button type="submit">
-            Add Task
-        </button>
+            <div class="input-section">
 
-    </form>
+                <input type="text"
+                name="task"
+                placeholder="Enter your task">
 
-    <br>
+                <button type="submit">
+                    Add
+                </button>
 
-    <!-- Clear Task Form -->
-    <form method="POST">
+            </div>
 
-        <button type="submit" name="clear" value="true">
-            Clear Tasks
-        </button>
+        </form>
 
-    </form>
+        <!-- CLEAR BUTTON -->
+        <form method="POST">
 
-    <!-- Task List -->
-    <ul>
+            <button
+            type="submit"
+            name="clear"
+            value="true"
+            class="clear-btn">
 
-        {% for task in tasks %}
+                Clear Tasks
 
-            <li>
-                {{ task }}
-                <form method="POST" style="display:inline;">
+            </button>
 
-                    <button type="submit" name="delete" value="{{loop.index0}}">
+        </form>
 
-                        Delete
-                        
-                    </button>
-                </form>
-            </li>
+        <!-- TASK LIST -->
+        <ul>
 
-        {% endfor %}
+            {% for task in tasks %}
 
-    </ul>
+                <li>
+
+                    {{ task }}
+
+                    <form method="POST" style="display:inline;">
+
+                        <button
+                        type="submit"
+                        name="delete"
+                        value="{{ loop.index0 }}">
+
+                            Delete
+
+                        </button>
+
+                    </form>
+
+                </li>
+
+            {% endfor %}
+
+        </ul>
+
+    </div>
 
 </body>
-            
+
+</html>
