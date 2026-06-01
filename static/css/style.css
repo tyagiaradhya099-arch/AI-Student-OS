@@ -42,7 +42,7 @@ button {
     padding: 12px 18px;
     border: none;
     border-radius: 10px;
-    background: #ff4fa3;
+    background: black;
     color: white;
     cursor: pointer;
     font-weight: bold;
@@ -62,4 +62,27 @@ button:hover {
 
 .clear-btn:hover {
     background: #dc2626;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+li {
+    background: rgba(255,255,255,0.2);
+    padding: 12px;
+    border-radius: 12px;
+    margin-top: 12px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+li button {
+    background: black;
+}
+
+li button:hover {
+    background: #333;
 }

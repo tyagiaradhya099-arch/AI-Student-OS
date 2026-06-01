@@ -9,7 +9,13 @@ def home():
 
     if request.method == "POST":
 
-        if "delete" in request.form:
+        if "complete" in request.form:
+
+            index = int(request.form["complete"])
+
+            tasks[index]["done"] = True
+
+        elif "delete" in request.form:
 
             index = int(request.form["delete"])
 
@@ -23,7 +29,10 @@ def home():
 
             task = request.form["task"]
 
-            tasks.append(task)
+            tasks.append({
+                "text": task,
+                "done": False
+            })
 
     return render_template("index.html", tasks=tasks)
 

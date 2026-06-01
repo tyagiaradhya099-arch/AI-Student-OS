@@ -2,10 +2,12 @@
 <html>
 
 <head>
+
     <title>AI Student OS</title>
 
     <link rel="stylesheet"
     href="{{ url_for('static', filename='css/style.css') }}">
+
 </head>
 
 <body>
@@ -19,7 +21,8 @@
 
             <div class="input-section">
 
-                <input type="text"
+                <input
+                type="text"
                 name="task"
                 placeholder="Enter your task">
 
@@ -31,7 +34,9 @@
 
         </form>
 
-        <!-- CLEAR BUTTON -->
+        <br>
+
+        <!-- CLEAR TASKS -->
         <form method="POST">
 
             <button
@@ -53,20 +58,53 @@
 
                 <li>
 
-                    {{ task }}
+                    <!-- TASK TEXT -->
 
-                    <form method="POST" style="display:inline;">
+                    {% if task.done %}
 
-                        <button
-                        type="submit"
-                        name="delete"
-                        value="{{ loop.index0 }}">
+                        <s>{{ task.text }}</s>
 
-                            Delete
+                    {% else %}
 
-                        </button>
+                        {{ task.text }}
 
-                    </form>
+                    {% endif %}
+
+                    <!-- BUTTONS -->
+
+                    <div>
+
+                        <!-- COMPLETE BUTTON -->
+
+                        <form method="POST" style="display:inline;">
+
+                            <button
+                            type="submit"
+                            name="complete"
+                            value="{{ loop.index0 }}">
+
+                                Complete
+
+                            </button>
+
+                        </form>
+
+                        <!-- DELETE BUTTON -->
+
+                        <form method="POST" style="display:inline;">
+
+                            <button
+                            type="submit"
+                            name="delete"
+                            value="{{ loop.index0 }}">
+
+                                Delete
+
+                            </button>
+
+                        </form>
+
+                    </div>
 
                 </li>
 
