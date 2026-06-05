@@ -9,32 +9,61 @@ def home():
 
     if request.method == "POST":
 
+        # COMPLETE TASK
         if "complete" in request.form:
 
             index = int(request.form["complete"])
 
-            tasks[index]["done"] = True
+            if 0 <= index < len(tasks):
 
+                tasks[index]["done"] = True
+
+        # DELETE TASK
         elif "delete" in request.form:
 
             index = int(request.form["delete"])
 
-            tasks.pop(index)
+            if 0 <= index < len(tasks):
 
+                tasks.pop(index)
+
+        # CLEAR TASKS
         elif "clear" in request.form:
 
             tasks.clear()
 
+        # ADD TASK
         else:
 
             task = request.form["task"]
 
-            tasks.append({
-                "text": task,
-                "done": False
-            })
+            if task.strip() != "":
 
-    return render_template("index.html", tasks=tasks)
+                tasks.append({
+                    "text": task,
+                    "done": False
+                })
+
+    # TASK STATS
+    total_tasks = len(tasks)
+
+    completed_tasks = 0
+
+    for task in tasks:
+
+        if task["done"] == True:
+
+            completed_tasks += 1
+
+    remaining_tasks = total_tasks - completed_tasks
+
+    return render_template(
+        "index.html",
+        tasks=tasks,
+        total_tasks=total_tasks,
+        completed_tasks=completed_tasks,
+        remaining_tasks=remaining_tasks
+    )
 
 if __name__ == "__main__":
     app.run(debug=True)

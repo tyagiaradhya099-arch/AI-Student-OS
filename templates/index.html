@@ -14,7 +14,26 @@
 
     <div class="container">
 
-        <h1>AI Student OS 🚀</h1>
+        <h1>AI Student OS 🚀   
+            <div class="stats">
+
+    <div class="stat-box">
+        <h3>Total</h3>
+        <p>{{ total_tasks }}</p>
+    </div>
+
+    <div class="stat-box">
+        <h3>Completed</h3>
+        <p>{{ completed_tasks }}</p>
+    </div>
+
+    <div class="stat-box">
+        <h3>Remaining</h3>
+        <p>{{ remaining_tasks }}</p>
+    </div>
+
+</div>
+        </h1>
 
         <!-- ADD TASK FORM -->
         <form method="POST">
