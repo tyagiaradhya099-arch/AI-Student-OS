@@ -4,7 +4,14 @@ app = Flask(__name__)
 
 tasks = []
 
-@app.route("/", methods=["GET", "POST"])
+#HOME PAGE
+@app.route("/")
+def homepage():
+
+    return render_template("home.html")
+
+#TASK PAGE 
+@app.route("/tasks", methods=["GET", "POST"])
 def home():
 
     if request.method == "POST":
@@ -37,11 +44,14 @@ def home():
 
             task = request.form["task"]
 
+            priority = request.form["priority"]
+
             if task.strip() != "":
 
                 tasks.append({
                     "text": task,
-                    "done": False
+                    "done": False,
+                    "priority": priority
                 })
 
     # TASK STATS

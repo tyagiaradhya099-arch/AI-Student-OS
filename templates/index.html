@@ -14,40 +14,55 @@
 
     <div class="container">
 
-        <h1>AI Student OS 🚀   
-            <div class="stats">
+        <h1>AI Student OS 🚀</h1>
 
-    <div class="stat-box">
-        <h3>Total</h3>
-        <p>{{ total_tasks }}</p>
-    </div>
+        <!-- STATS SECTION -->
 
-    <div class="stat-box">
-        <h3>Completed</h3>
-        <p>{{ completed_tasks }}</p>
-    </div>
+        <div class="stats">
 
-    <div class="stat-box">
-        <h3>Remaining</h3>
-        <p>{{ remaining_tasks }}</p>
-    </div>
+            <div class="stat-box">
+                <h3>Total</h3>
+                <p>{{ total_tasks }}</p>
+            </div>
 
-</div>
-        </h1>
+            <div class="stat-box">
+                <h3>Completed</h3>
+                <p>{{ completed_tasks }}</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>Remaining</h3>
+                <p>{{ remaining_tasks }}</p>
+            </div>
+
+        </div>
 
         <!-- ADD TASK FORM -->
+
         <form method="POST">
 
             <div class="input-section">
 
-                <input
-                type="text"
-                name="task"
-                placeholder="Enter your task">
+                
+                    <select name="priority">
 
-                <button type="submit">
-                    Add
-                </button>
+                       <option value="High">High 🔴</option>
+
+                       <option value="Medium">Medium 🟡</option>
+
+                       <option value="Low">Low 🟢</option>
+
+                    </select>
+
+                    <input
+
+                     type="text"
+                     name="task"
+                     placeholder="Enter your task">
+
+                     <button type="submit">
+                      Add
+                     </button>
 
             </div>
 
@@ -55,7 +70,8 @@
 
         <br>
 
-        <!-- CLEAR TASKS -->
+        <!-- CLEAR BUTTON -->
+
         <form method="POST">
 
             <button
@@ -71,25 +87,26 @@
         </form>
 
         <!-- TASK LIST -->
+
         <ul>
 
             {% for task in tasks %}
 
                 <li>
 
-                    <!-- TASK TEXT -->
+                    <div>
 
-                    {% if task.done %}
+                        {% if task.done %}
 
-                        <s>{{ task.text }}</s>
+                            <s>{{ task.text }}</s>
 
-                    {% else %}
+                        {% else %}
 
-                        {{ task.text }}
+                            {{ task.priority }} - {{ task.text }}
 
-                    {% endif %}
+                        {% endif %}
 
-                    <!-- BUTTONS -->
+                    </div>
 
                     <div>
 

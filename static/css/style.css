@@ -122,3 +122,66 @@ li button:hover {
     color: white;
     font-weight: bold;
 }
+select {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    outline: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: rgba(255,255,255,0.2);
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 15px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+
+    margin-top: 20px;
+}
+.navbar a {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+
+    text-decoration: underline;
+
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    opacity: 0.7;
+}
+.home-container {
+    text-align: center;
+    color: white;
+}
+
+.home-container h1 {
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+.home-container p {
+    font-size: 22px;
+    opacity: 0.9;
+}
