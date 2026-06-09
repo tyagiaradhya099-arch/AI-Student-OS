@@ -12,11 +12,12 @@
 
 <body>
 
+
     <div class="container">
 
-        <h1>AI Student OS 🚀</h1>
+        <h1>Task Manager 🚀</h1>
 
-        <!-- STATS SECTION -->
+        <!-- STATS -->
 
         <div class="stats">
 
@@ -39,30 +40,32 @@
 
         <!-- ADD TASK FORM -->
 
-        <form method="POST">
+        <form method="POST" action="/tasks">
 
             <div class="input-section">
 
-                
-                    <select name="priority">
+                <select name="priority">
 
-                       <option value="High">High 🔴</option>
+                    <option value="High 🔴">High 🔴</option>
 
-                       <option value="Medium">Medium 🟡</option>
+                    <option value="Medium 🟡">Medium 🟡</option>
 
-                       <option value="Low">Low 🟢</option>
+                    <option value="Low 🟢">Low 🟢</option>
 
-                    </select>
+                </select>
 
-                    <input
+                <input
+                type="text"
+                name="task"
+                placeholder="Enter your task">
 
-                     type="text"
-                     name="task"
-                     placeholder="Enter your task">
+                <input
+                type="date"
+                name="due_date">
 
-                     <button type="submit">
-                      Add
-                     </button>
+                <button type="submit">
+                    Add
+                </button>
 
             </div>
 
@@ -72,7 +75,7 @@
 
         <!-- CLEAR BUTTON -->
 
-        <form method="POST">
+        <form method="POST" action="/tasks">
 
             <button
             type="submit"
@@ -98,11 +101,26 @@
 
                         {% if task.done %}
 
-                            <s>{{ task.text }}</s>
+                            <s>
+                             {{ task.priority }} - {{ task.text }}
+
+                            <br>
+
+                            <small>
+                             Due: {{ task.due_date }}
+                            </small> 
+
+                            </s>
 
                         {% else %}
 
                             {{ task.priority }} - {{ task.text }}
+
+                            <br>
+
+                            <small>
+                            Due: {{ task.due_date }}
+                            </small>
 
                         {% endif %}
 
@@ -112,7 +130,10 @@
 
                         <!-- COMPLETE BUTTON -->
 
-                        <form method="POST" style="display:inline;">
+                        <form
+                        method="POST"
+                        action="/tasks"
+                        style="display:inline;">
 
                             <button
                             type="submit"
@@ -127,7 +148,10 @@
 
                         <!-- DELETE BUTTON -->
 
-                        <form method="POST" style="display:inline;">
+                        <form
+                        method="POST"
+                        action="/tasks"
+                        style="display:inline;">
 
                             <button
                             type="submit"

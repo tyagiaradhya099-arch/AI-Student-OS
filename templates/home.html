@@ -21,13 +21,39 @@
             🌸Your personal productivity and study management system🌸
         </p>
 
-        <div class="navbar">
+        <div class="dashboard-stats">
 
-         <a href="/">Home</a>
+    <div class="dashboard-card">
 
-         <a href="/tasks">Tasks</a>
+        <h2>Total Tasks</h2>
 
-        </div>
+        <p>{{ total_tasks }}</p>
+
+    </div>
+
+    <div class="dashboard-card">
+
+        <h2>Completed</h2>
+
+        <p>{{ completed_tasks }}</p>
+
+    </div>
+
+    <div class="dashboard-card">
+
+        <h2>Remaining</h2>
+
+        <p>{{ remaining_tasks }}</p>
+
+    </div>
+
+</div>
+
+<a href="/tasks" class="task-btn">
+
+    Open Task Manager
+
+</a>
 
 
     </div>

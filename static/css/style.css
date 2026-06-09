@@ -27,6 +27,9 @@ h1 {
 .input-section {
     display: flex;
     gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: centre;
 }
 
 input {
@@ -184,4 +187,60 @@ li div {
 .home-container p {
     font-size: 22px;
     opacity: 0.9;
+}
+.dashboard-stats {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    margin-top: 40px;
+}
+
+.dashboard-card {
+    background: rgba(255,255,255,0.2);
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    width: 180px;
+}
+
+.dashboard-card h2 {
+    color: white;
+    font-size: 22px;
+}
+
+.dashboard-card p {
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.task-btn {
+    display: inline-block;
+
+    margin-top: 40px;
+
+    padding: 15px 30px;
+
+    background: black;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 15px;
+
+    font-size: 18px;
+}
+input[type="date"] {
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    font-size: 14px;
 }

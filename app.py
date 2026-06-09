@@ -18,6 +18,8 @@ class Task(db.Model):
 
     priority = db.Column(db.String(50))
 
+    due_date = db.Column(db.String(50))
+
     done = db.Column(db.Boolean, default=False)
 
 
@@ -25,7 +27,26 @@ class Task(db.Model):
 @app.route("/")
 def homepage():
 
-    return render_template("home.html")
+    tasks = Task.query.all()
+
+    total_tasks = len(tasks)
+
+    completed_tasks = 0
+
+    for task in tasks:
+
+        if task.done == True:
+
+            completed_tasks += 1
+
+    remaining_tasks = total_tasks - completed_tasks
+
+    return render_template(
+        "home.html",
+        total_tasks=total_tasks,
+        completed_tasks=completed_tasks,
+        remaining_tasks=remaining_tasks
+    )
 
 
 # TASK PAGE
@@ -77,8 +98,9 @@ def home():
             if task.strip() != "":
 
                 new_task = Task(
-                    text=task,
-                    priority=priority
+                  text=task,
+                  priority=priority,
+                  due_date=due_date
                 )
 
                 db.session.add(new_task)
