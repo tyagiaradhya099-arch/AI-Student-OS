@@ -20,6 +20,8 @@ class Task(db.Model):
 
     due_date = db.Column(db.String(50))
 
+    category = db.Column(db.String(50))
+
     done = db.Column(db.Boolean, default=False)
 
 
@@ -95,12 +97,17 @@ def home():
 
             priority = request.form["priority"]
 
+            due_date = request.form["due_date"]
+
+            category = request.form["category"]
+
             if task.strip() != "":
 
                 new_task = Task(
                   text=task,
                   priority=priority,
-                  due_date=due_date
+                  due_date=due_date,
+                  category=category
                 )
 
                 db.session.add(new_task)

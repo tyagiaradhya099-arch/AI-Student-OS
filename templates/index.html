@@ -54,6 +54,18 @@
 
                 </select>
 
+                <select name="category">
+
+                   <option value="DSA">DSA 💻</option>
+
+                   <option value="Web Dev">Web Dev 🌐</option>
+
+                   <option value="College">College 📚</option>
+
+                   <option value="Personal">Personal 🌱</option>
+
+                </select>
+
                 <input
                 type="text"
                 name="task"
@@ -109,6 +121,12 @@
                             <small>
                              Due: {{ task.due_date }}
                             </small> 
+
+                            <br>
+
+                            <small>
+                            Category: {{ task.category }}
+                            </small>
 
                             </s>
 
