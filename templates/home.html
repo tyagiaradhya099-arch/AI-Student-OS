@@ -12,7 +12,6 @@
 
 <body>
 
-    
     <div class="home-container">
 
         <h1>Welcome to AI Student OS 🚀</h1>
@@ -23,38 +22,51 @@
 
         <div class="dashboard-stats">
 
-    <div class="dashboard-card">
+            <div class="dashboard-card">
 
-        <h2>Total Tasks</h2>
+                <h2>Total Tasks</h2>
 
-        <p>{{ total_tasks }}</p>
+                <p>{{ total_tasks }}</p>
 
-    </div>
+            </div>
 
-    <div class="dashboard-card">
+            <div class="dashboard-card">
 
-        <h2>Completed</h2>
+                <h2>Completed</h2>
 
-        <p>{{ completed_tasks }}</p>
+                <p>{{ completed_tasks }}</p>
 
-    </div>
+            </div>
 
-    <div class="dashboard-card">
+            <div class="dashboard-card">
 
-        <h2>Remaining</h2>
+                <h2>Remaining</h2>
 
-        <p>{{ remaining_tasks }}</p>
+                <p>{{ remaining_tasks }}</p>
 
-    </div>
+            </div>
 
-</div>
+        </div>
 
-<a href="/tasks" class="task-btn">
+        <div class="category-stats">
 
-    Open Task Manager
+            <h3>Category Overview</h3>
 
-</a>
+            <p>💻 DSA: {{ dsa_count }}</p>
 
+            <p>🌐 Web Dev: {{ web_count }}</p>
+
+            <p>📚 College: {{ college_count }}</p>
+
+            <p>🌱 Personal: {{ personal_count }}</p>
+
+        </div>
+
+        <a href="/tasks" class="task-btn">
+
+            Open Task Manager
+
+        </a>
 
     </div>
 

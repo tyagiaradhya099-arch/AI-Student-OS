@@ -244,3 +244,12 @@ input[type="date"] {
 
     font-size: 14px;
 }
+.category-stats {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.category-stats p {
+    margin: 8px;
+    font-size: 18px;
+}

@@ -44,42 +44,53 @@
 
             <div class="input-section">
 
-                <select name="priority">
+             <form method="POST" action="/tasks">
 
-                    <option value="High 🔴">High 🔴</option>
+```
+<div class="input-section">
 
-                    <option value="Medium 🟡">Medium 🟡</option>
+    <select name="priority">
 
-                    <option value="Low 🟢">Low 🟢</option>
+        <option value="High">High 🔴</option>
 
-                </select>
+        <option value="Medium">Medium 🟡</option>
 
-                <select name="category">
+        <option value="Low">Low 🟢</option>
 
-                   <option value="DSA">DSA 💻</option>
+    </select>
 
-                   <option value="Web Dev">Web Dev 🌐</option>
+    <select name="category">
 
-                   <option value="College">College 📚</option>
+        <option value="DSA">DSA 💻</option>
 
-                   <option value="Personal">Personal 🌱</option>
+        <option value="Web Dev">Web Dev 🌐</option>
 
-                </select>
+        <option value="College">College 📚</option>
 
-                <input
-                type="text"
-                name="task"
-                placeholder="Enter your task">
+        <option value="Personal">Personal 🌱</option>
 
-                <input
-                type="date"
-                name="due_date">
+    </select>
 
-                <button type="submit">
-                    Add
-                </button>
+    <input
+    type="text"
+    name="task"
+    placeholder="Enter your task">
 
-            </div>
+    <input
+    type="date"
+    name="due_date">
+
+    <button type="submit">
+
+        Add
+
+    </button>
+
+</div>
+```
+
+
+   
 
         </form>
 

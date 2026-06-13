@@ -31,6 +31,14 @@ def homepage():
 
     tasks = Task.query.all()
 
+    dsa_count = Task.query.filter_by(category="DSA").count()
+
+    web_count = Task.query.filter_by(category="Web Dev").count()
+
+    college_count = Task.query.filter_by(category="College").count()
+
+    personal_count = Task.query.filter_by(category="Personal").count()
+
     total_tasks = len(tasks)
 
     completed_tasks = 0
@@ -47,7 +55,11 @@ def homepage():
         "home.html",
         total_tasks=total_tasks,
         completed_tasks=completed_tasks,
-        remaining_tasks=remaining_tasks
+        remaining_tasks=remaining_tasks,
+        dsa_count=dsa_count,
+        web_count=web_count,
+        college_count=college_count,
+        personal_count=personal_count
     )
 
 
