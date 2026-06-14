@@ -28,7 +28,7 @@ class Task(db.Model):
 # HOME PAGE
 @app.route("/")
 def homepage():
-
+    
     tasks = Task.query.all()
 
     dsa_count = Task.query.filter_by(category="DSA").count()
@@ -126,8 +126,19 @@ def home():
 
                 db.session.commit()
 
-    # FETCH ALL TASKS
-    tasks = Task.query.all()
+    # SEARCH TASKS
+    search = request.args.get("search")
+
+    if search:
+
+       tasks = Task.query.filter(
+         (Task.text.contains(search)) |
+         (Task.category.contains(search))
+       ).all()
+
+    else:
+
+       tasks = Task.query.all()
 
     # TASK STATS
     total_tasks = len(tasks)
