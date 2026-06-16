@@ -1,102 +1,211 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
 
-    <title>AI Student OS</title>
 
-    <link rel="stylesheet"
-    href="{{ url_for('static', filename='css/style.css') }}">
+<title>AI Student OS</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
 
 </head>
 
 <body>
 
+<div class="container">
 
-    <div class="container">
+    <h1>Task Manager 🚀</h1>
 
-        <h1>Task Manager 🚀</h1>
+    <!-- STATS -->
 
-        <!-- STATS -->
+    <div class="stats">
 
-        <div class="stats">
-
-            <div class="stat-box">
-                <h3>Total</h3>
-                <p>{{ total_tasks }}</p>
-            </div>
-
-            <div class="stat-box">
-                <h3>Completed</h3>
-                <p>{{ completed_tasks }}</p>
-            </div>
-
-            <div class="stat-box">
-                <h3>Remaining</h3>
-                <p>{{ remaining_tasks }}</p>
-            </div>
-
+        <div class="stat-box">
+            <h3> 📋Total</h3>
+            <p>{{ total_tasks }}</p>
         </div>
 
-        <!-- ADD TASK FORM -->
+        <div class="stat-box">
+            <h3>✅Completed</h3>
+            <p>{{ completed_tasks }}</p>
+        </div>
+
+        <div class="stat-box">
+            <h3>⌛Remaining</h3>
+            <p>{{ remaining_tasks }}</p>
+        </div>
+
+    </div>
+
+    <!-- ADD TASK -->
+
+    <div class="card-section">
+
+        <h2>📝Add a New Task</h2>
 
         <form method="POST" action="/tasks">
 
             <div class="input-section">
 
-             <form method="POST" action="/tasks">
+                <select name="priority">
 
-```
-<div class="input-section">
+                    <option value="High">High 🔴</option>
+                    <option value="Medium">Medium 🟡</option>
+                    <option value="Low">Low 🟢</option>
 
-    <select name="priority">
+                </select>
 
-        <option value="High">High 🔴</option>
+                <select name="category">
 
-        <option value="Medium">Medium 🟡</option>
+                    <option value="DSA">DSA 💻</option>
+                    <option value="Web Dev">Web Dev 🌐</option>
+                    <option value="College">College 📚</option>
+                    <option value="Personal">Personal 🌱</option>
 
-        <option value="Low">Low 🟢</option>
+                </select>
 
-    </select>
+                <input
+                type="text"
+                name="task"
+                placeholder="Enter your task">
 
-    <select name="category">
+                <input
+                type="date"
+                name="due_date">
 
-        <option value="DSA">DSA 💻</option>
+                <button type="submit">
+                    Add
+                </button>
 
-        <option value="Web Dev">Web Dev 🌐</option>
-
-        <option value="College">College 📚</option>
-
-        <option value="Personal">Personal 🌱</option>
-
-    </select>
-
-    <input
-    type="text"
-    name="task"
-    placeholder="Enter your task">
-
-    <input
-    type="date"
-    name="due_date">
-
-    <button type="submit">
-
-        Add
-
-    </button>
-
-</div>
-```
-
-
-   
+            </div>
 
         </form>
 
-        <br>
+    </div>
 
-        <!-- CLEAR BUTTON -->
+    <!-- SEARCH -->
+
+    <div class="card-section">
+
+        <h2>🔍Search Tasks</h2>
+
+        <form method="GET">
+
+            <input
+            type="text"
+            name="search"
+            placeholder="Search tasks...">
+
+            <button type="submit">
+                Search
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- TASK LIST -->
+
+    <div class="card-section">
+
+        <h2>🗒️Your Tasks</h2>
+
+        <ul>
+
+            {% for task in tasks %}
+
+            <li>
+
+                <div>
+
+                    {% if task.done %}
+
+                    <s>
+
+                        <strong>{{ task.priority }} - {{ task.text }}</strong>
+
+                        <br>
+
+                    <small>
+                    📅 Due: {{ task.due_date }} &nbsp;&nbsp;&nbsp; 📁 Category: {{ task.category }}
+                    </small>
+
+                    </s>
+
+                    {% else %}
+
+                       <strong>{{ task.priority }} - {{ task.text }}</strong>
+
+                        <br>
+
+                      <small>
+                      📅 Due: {{ task.due_date }} &nbsp;&nbsp;&nbsp; 📁 Category: {{ task.category }}
+                      </small>  
+
+                    {% endif %}
+
+                </div>
+
+                <div>
+
+                    <form
+                    method="POST"
+                    action="/tasks"
+                    style="display:inline;">
+
+                        <button
+                        type="submit"
+                        name="complete"
+                        value="{{ task.id }}">
+
+                            Complete
+
+                        </button>
+
+                    </form>
+
+                    <form
+                    method="POST"
+                    action="/tasks"
+                    style="display:inline;">
+
+                        <button
+                        type="submit"
+                        name="delete"
+                        value="{{ task.id }}">
+
+                            Delete
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </li>
+
+            {% endfor %}
+
+        </ul>
+
+    </div>
+
+    <!-- DANGER ZONE -->
+
+    <div class="danger-section">
+
+        <div>
+
+            <h2>😈Danger Zone</h2>
+
+            <p>
+                This will delete all your tasks.
+            </p>
+
+        </div>
 
         <form method="POST" action="/tasks">
 
@@ -104,117 +213,18 @@
             type="submit"
             name="clear"
             value="true"
-            class="clear-btn">
+            class="danger-btn">
 
-                Clear Tasks
+                Clear All Tasks
 
             </button>
 
         </form>
-        <!-- search bar -->
-        <form method="GET">
-
-             <input
-               type="text"
-               name="search"
-               placeholder="Search tasks...">
-
-          <button type="submit">
-             Search
-          </button>
-
-        </form>
-
-        <!-- TASK LIST -->
-
-        <ul>
-
-            {% for task in tasks %}
-
-                <li>
-
-                    <div>
-
-                        {% if task.done %}
-
-                            <s>
-                             {{ task.priority }} - {{ task.text }}
-
-                            <br>
-
-                            <small>
-                             Due: {{ task.due_date }}
-                            </small> 
-
-                            <br>
-
-                            <small>
-                            Category: {{ task.category }}
-                            </small>
-
-                            </s>
-
-                        {% else %}
-
-                            {{ task.priority }} - {{ task.text }}
-
-                            <br>
-
-                            <small>
-                            Due: {{ task.due_date }}
-                            </small>
-
-                        {% endif %}
-
-                    </div>
-
-                    <div>
-
-                        <!-- COMPLETE BUTTON -->
-
-                        <form
-                        method="POST"
-                        action="/tasks"
-                        style="display:inline;">
-
-                            <button
-                            type="submit"
-                            name="complete"
-                            value="{{ loop.index0 }}">
-
-                                Complete
-
-                            </button>
-
-                        </form>
-
-                        <!-- DELETE BUTTON -->
-
-                        <form
-                        method="POST"
-                        action="/tasks"
-                        style="display:inline;">
-
-                            <button
-                            type="submit"
-                            name="delete"
-                            value="{{ loop.index0 }}">
-
-                                Delete
-
-                            </button>
-
-                        </form>
-
-                    </div>
-
-                </li>
-
-            {% endfor %}
-
-        </ul>
 
     </div>
+
+</div>
+
 
 </body>
 
