@@ -24,6 +24,15 @@ class Task(db.Model):
 
     done = db.Column(db.Boolean, default=False)
 
+# NOTES TABLE
+class Note(db.Model):
+
+    id = db.Column(db.Integer, primary_key=True)
+
+    title = db.Column(db.String(200))
+
+    content = db.Column(db.Text)
+
 
 # HOME PAGE
 @app.route("/")
@@ -168,5 +177,54 @@ with app.app_context():
     db.create_all()
 
 
+    # NOTES PAGE
+@app.route("/notes", methods=["GET", "POST"])
+def notes():
+
+    if request.method == "POST":
+
+        if "delete_note" in request.form:
+
+           note_id = request.form["delete_note"]
+
+           note=Note.query.get(note_id)
+           
+           if note:
+
+             db.session.delete(note)
+
+             db.session.commit()
+
+        else:
+           
+             title = request.form["title"]
+
+             content = request.form["content"]
+
+             new_note = Note(
+
+              title=title,
+
+              content=content
+
+             )
+
+            
+             db.session.add(new_note)
+
+             db.session.commit()
+
+    notes = Note.query.all()
+
+
+    return render_template(
+        "notes.html",
+        notes=notes
+    )
+
+
 if __name__ == "__main__":
+
+
     app.run(debug=True)
+

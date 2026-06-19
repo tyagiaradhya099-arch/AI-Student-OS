@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Notes</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+
+    <div class="notes-container">
+
+        <h1> 📝Notes </h1>
+       
+         <div class="card-section">
+
+            <h2>Add Note</h2>
+
+            <form method="POST" class="notes-form">
+                <h3>Title</h3>
+
+                <input
+                type="text"
+                name="title"
+                placeholder="Enter title">
+
+                <h3>Content</h3>
+
+                <textarea
+                 name="content"
+                 placeholder="Write your note here..."></textarea>
+
+                <button type="submit">
+
+                   Save Note
+
+                </button>
+
+            </form>
+
+        <div class="card-section">
+
+              <h2>Your Notes</h2>
+
+              {% for note in notes %}
+
+                <div class="note-card">
+
+                   <h3>{{ note.title }}</h3>
+
+                   <p>{{ note.content }}</p>
+
+                   <form method="POST">
+
+                    <button
+                     type="submit"
+                     name="delete_note"
+                     value="{{ note.id }}">
+
+                      Delete
+
+                    </button>
+
+                   </form>
+
+                </div>
+
+              {% endfor %}
+
+           </div>
+
+           <a href="/" class="back-btn">
+             ← Back to Home
+           </a>
+
+        </div>
+
+    </div>
+    
+</body>
+</html>
