@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Pomodoro</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+<div class="pomodoro-container">
+
+    <h1>🍅 Pomodoro Focus</h1>
+
+    <p class="subtitle">
+        Stay focused, one session at a time 🌸
+    </p>
+
+    <div class="timer-card">
+
+        <h2 id="timer">25:00</h2>
+            <p class="session-type">
+                Focus Session
+            </p>
+    </div>
+
+    <div class="time-settings">
+
+        <div>
+
+            <label>Focus Time</label>
+
+            <input
+             type="number"
+             class="time-input"
+             value="25">
+
+        </div>
+
+        <div>
+
+            <label>Break Time</label>
+
+            <input
+            type="number"
+            value="5">
+
+        </div>
+
+    </div>
+
+    <div class="timer-buttons">
+
+        <button>▶ Start</button>
+
+        <button>⏸ Pause</button>
+
+        <button>🔄 Reset</button>
+
+    </div>
+
+    <div class="session-counter">
+
+        🍅 Sessions Today:
+        <span>0</span>
+
+    </div>
+
+    <a href="/" class="back-btn">
+
+        ← Back to Home
+
+    </a>
+
+</div>
+    
+</body>
+
+</html>

@@ -221,6 +221,11 @@ def notes():
         "notes.html",
         notes=notes
     )
+#POMODORO PAGE
+@app.route("/pomodoro")
+def pomodoro():
+
+    return render_template("pomodoro.html")
 
 
 if __name__ == "__main__":
