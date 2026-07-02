@@ -11,63 +11,136 @@
 </head>
 
 <body>
-<div class="pomodoro-container">
 
-    <h1>🍅 Pomodoro Focus</h1>
+<div class="pomodoro-page">
 
-    <p class="subtitle">
-        Stay focused, one session at a time 🌸
-    </p>
+    <!-- HEADER -->
 
-    <div class="timer-card">
+    <header class="pomodoro-header">
 
-        <h2 id="timer">25:00</h2>
-            <p class="session-type">
-                Focus Session
-            </p>
-    </div>
+        <h1>🍅 Pomodoro Focus</h1>
 
-    <div class="time-settings">
+        <p>Stay focused, one session at a time.</p>
 
-        <div>
+    </header>
 
-            <label>Focus Time</label>
+    <!-- DASHBOARD -->
 
-            <input
-             type="number"
-             class="time-input"
-             value="25">
+    <main class="dashboard">
+
+        <!-- LEFT SIDE -->
+
+        <section class="timer-panel">
+
+            <div class="timer-card">
+
+                <svg class="progress-ring" width="320" height="320">
+
+                    <circle
+                        class="progress-bg"
+                        cx="160"
+                        cy="160"
+                        r="145">
+                    </circle>
+
+                    <circle
+                        class="progress-bar"
+                        cx="160"
+                        cy="160"
+                        r="145">
+                    </circle>
+
+                </svg>
+
+                <div class="timer-content">
+
+                    <h2 id="timer">25:00</h2>
+
+                    <p class="session-type">
+                        🍅 Focus Session
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- RIGHT SIDE -->
+
+        <section class="controls-panel">
+
+            <div class="control-card">
+
+                <label>🍅 Focus Time</label>
+
+                <input
+                    type="number"
+                    class="time-input"
+                    value="25">
+
+            </div>
+
+            <div class="control-card">
+
+                <label>☕ Break Time</label>
+
+                <input
+                    type="number"
+                    class="time-input"
+                    value="5">
+
+            </div>
+
+            <div class="button-group">
+
+                <button id="startBtn">▶ Start</button>
+
+                <button id="pauseBtn">⏸ Pause</button>
+
+                <button id="resetBtn">🔄 Reset</button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- STATS -->
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+
+            <span>🍅</span>
+
+            <h3>Sessions</h3>
+
+            <p id="sessionsCount">0</p>
 
         </div>
 
-        <div>
+        <div class="stat-card">
 
-            <label>Break Time</label>
+            <span>🔥</span>
 
-            <input
-            type="number"
-            value="5">
+            <h3>Streak</h3>
+
+            <p id="streakCount">0</p>
 
         </div>
 
-    </div>
+        <div class="stat-card">
 
-    <div class="timer-buttons">
+            <span>⏱</span>
 
-        <button>▶ Start</button>
+            <h3>Focus Time</h3>
 
-        <button>⏸ Pause</button>
+            <p id="focusMinutes">0 min</p>
 
-        <button>🔄 Reset</button>
+        </div>
 
-    </div>
-
-    <div class="session-counter">
-
-        🍅 Sessions Today:
-        <span>0</span>
-
-    </div>
+    </section>
 
     <a href="/" class="back-btn">
 
@@ -76,7 +149,9 @@
     </a>
 
 </div>
-    
+
+<script src="{{ url_for('static', filename='js/pomodoro.js') }}"></script>
+
 </body>
 
 </html>

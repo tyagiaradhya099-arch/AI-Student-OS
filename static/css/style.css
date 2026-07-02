@@ -457,7 +457,87 @@ small {
 
     margin-top: 30px;
 }
-.pomodoro-container{
+
+/* ===================================================
+                POMODORO PAGE
+=================================================== */
+
+.pomodoro-page{
+    max-width:1200px;
+    margin:0 auto;
+    padding:20px 30px;
+}
+/* ---------------- HEADER ---------------- */
+
+.pomodoro-header{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.pomodoro-header h1{
+    font-size:40px;
+    margin-bottom:8px;
+}
+
+.pomodoro-header p{
+    font-size:17px;
+}
+
+/* ---------------- DASHBOARD ---------------- */
+
+.dashboard{
+
+    display:grid;
+
+    grid-template-columns:55% 45%;
+
+    gap:18px;
+
+    align-items:center;
+
+}
+/* ---------------- LEFT PANEL ---------------- */
+
+.timer-panel{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+/* Premium Card */
+
+.timer-card{
+
+    position:relative;
+
+    width:420px;
+    height:420px;
+
+    background:white;
+
+    border-radius:28px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    box-shadow:0 18px 40px rgba(255,110,150,.12);
+
+}
+/* ---------------- TIMER ---------------- */
+
+.timer-content{
+
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
 
     display:flex;
 
@@ -465,54 +545,436 @@ small {
 
     align-items:center;
 
-}
-.timer-card{
-
-    background:white;
-
-    width:320px;
-
-    padding:35px;
-
-    border-radius:25px;
+    justify-content:center;
 
     text-align:center;
 
-    box-shadow:0 10px 30px rgba(0,0,0,0.1);
-
-    margin:30px 0;
-
 }
+
 #timer{
 
     font-size:60px;
 
-    margin-bottom:10px;
+    font-weight:700;
+
+    color:#2c2c2c;
+
+    margin:0;
+
+    letter-spacing:2px;
 
 }
-.time-settings{
+
+.session-type{
+
+    margin-top:12px;
+
+    color:#ff5f8f;
+
+    font-size:17px;
+
+    font-weight:600;
+
+}
+
+/* ---------------- SVG ---------------- */
+
+.progress-ring{
+
+    width:320px;
+
+    height:320px;
+
+    transform:rotate(-90deg);
+
+}
+.progress-bg{
+
+    fill:none;
+
+    stroke:#f8dce5;
+
+    stroke-width:12;
+
+}
+
+.progress-bar{
+
+    fill:none;
+
+    stroke:#ff5f8f;
+
+    stroke-width:12;
+
+    stroke-linecap:round;
+
+    stroke-dasharray:911;
+
+    stroke-dashoffset:0;
+
+    transition:stroke-dashoffset 1s linear;
+
+}
+/* ===================================================
+                RIGHT CONTROL PANEL
+=================================================== */
+
+.controls-panel{
 
     display:flex;
 
-    justify-content:center;
+    flex-direction:column;
 
-    gap:40px;
-
-    margin-bottom:30px;
+    gap:22px;
 
 }
+
+/* ---------- Control Cards ---------- */
+
+.control-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:18px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.control-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 22px 45px rgba(0,0,0,.12);
+
+}
+
+.control-card label{
+
+    display:block;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    color:#555;
+
+    margin-bottom:12px;
+
+}
+
 .time-input{
 
-    width:120px;
+    width:100%;
 
-    padding:12px;
+    padding:12px 14px;
 
-    border-radius:12px;
+    border:none;
 
-    border:1px solid #ddd;
+    outline:none;
+
+    border-radius:16px;
+
+    background:#fff4f8;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    color:#333;
+
+    transition:.3s;
+
+    box-sizing:border-box;
+
+}
+
+.time-input:focus{
+
+    background:white;
+
+    box-shadow:0 0 0 3px rgba(255,95,143,.18);
+
+}
+
+/* ---------- BUTTON GROUP ---------- */
+
+.button-group{
+
+    display:flex;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:12px;
+
+    margin-top:6px;
+
+}
+
+/* ---------- BUTTONS ---------- */
+
+.button-group button{
+
+    border:none;
+
+    border-radius:16px;
+
+    padding:13px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    color:white;
+
+    flex: 1;
+
+}
+
+/* ---------- Individual Colors ---------- */
+
+#startBtn{
+
+    background:linear-gradient(135deg,#57d67b,#37b85d);
+
+}
+
+#pauseBtn{
+
+    background:linear-gradient(135deg,#ffc857,#ffb020);
+
+}
+
+#resetBtn{
+
+    background:linear-gradient(135deg,#ff84ab,#ff5f8f);
+
+}
+
+/* ---------- Hover ---------- */
+
+.button-group button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+
+}
+
+.button-group button:active{
+
+    transform:scale(.97);
+
+}
+
+/* ---------- Back Button ---------- */
+
+.back-btn{
+
+    display:inline-block;
+
+    margin-top:35px;
+
+    text-decoration:none;
+
+    color:#ff5f8f;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.back-btn:hover{
+
+    transform:translateX(-5px);
+
+}
+/* ===================================================
+                STATS SECTION
+=================================================== */
+
+.stats-grid{
+
+    margin-top:22px;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:16px;
+
+}
+
+.stat-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:18px;
 
     text-align:center;
 
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 25px 50px rgba(0,0,0,.12);
+
+}
+
+.stat-card span{
+
+    font-size:24px;
+
+    display:block;
+
+    margin-bottom:6px;
+
+}
+
+.stat-card h3{
+
+    font-size:16px;
+
+    color:#666;
+
+    margin-bottom:6px 0;
+
+    font-weight:600;
+
+}
+
+.stat-card p{
+
     font-size:18px;
+
+    font-weight:700;
+
+    color:#ff5f8f;
+
+    margin-top: 8px;
+
+}
+
+/* ===================================================
+                PAGE BACKGROUND
+=================================================== */
+
+body{
+
+    font-family:"Segoe UI",sans-serif;
+
+    background:linear-gradient(
+        135deg,
+        #fff8fb,
+        #ffeef4,
+        #fffafc
+    );
+
+    min-height:100vh;
+
+}
+
+/* ===================================================
+                SCROLLBAR
+=================================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#ffb2c8;
+
+    border-radius:20px;
+
+}
+
+/* ===================================================
+                RESPONSIVE
+=================================================== */
+
+@media(max-width:1100px){
+
+    .dashboard{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .controls-panel{
+
+        margin-top:20px;
+
+    }
+
+}
+
+@media(max-width:700px){
+
+    .timer-card{
+
+        width:340px;
+
+        height:340px;
+
+    }
+
+    .progress-ring{
+
+        width:250px;
+
+        height:250px;
+
+    }
+
+    #timer{
+
+        font-size:52px;
+
+    }
+
+    .button-group{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .stats-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .pomodoro-header h1{
+
+        font-size:34px;
+
+    }
+
+    .pomodoro-page{
+
+        padding:20px;
+
+    }
 
 }

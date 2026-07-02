@@ -5,83 +5,90 @@
 
     <title>AI Student OS</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet"
     href="{{ url_for('static', filename='css/style.css') }}">
 
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/home_v2.css') }}">
 </head>
 
 <body>
 
     <div class="home-container">
 
-        <h1>Welcome to AI Student OS 🚀</h1>
+        <!--sidebar-->
 
-        <p>
-            🌻Your personal productivity and study management system🌻
-        </p>
+        <aside class="side-bar">
 
-        <div class="dashboard-stats">
-
-            <div class="dashboard-card">
-
-                <h2>Total Tasks</h2>
-
-                <p>{{ total_tasks }}</p>
-
+            <div class="branding">
+                <h1>🤖 AI Student OS</h1>
+                <p>Study Smarter Everyday!</p>
             </div>
 
-            <div class="dashboard-card">
+            <nav class="navigation">
 
-                <h2>Completed</h2>
+                <div class="nav-item">
+                    <span class ="icon">🏠</span>
+                    <span class ="label">Dashboard</span>
+                </div>
 
-                <p>{{ completed_tasks }}</p>
+                <div class="nav-item">
+                    <span class ="icon">📋</span>
+                    <span class ="label">Task Manager</span>
+                </div>
 
-            </div>
+                <div class="nav-item">
+                    <span class ="icon">📝</span>
+                    <span class ="label">Notes</span>
+                </div>
 
-            <div class="dashboard-card">
+                <div class="nav-item">
+                    <span class ="icon">🍓</span>
+                    <span class ="label">Pomodoro</span>
+                </div>
 
-                <h2>Remaining</h2>
+                <div class="nav-item">
+                    <span class ="icon">🗓️</span>
+                    <span class ="label">Calender</span>
+                </div>
 
-                <p>{{ remaining_tasks }}</p>
+                <div class="nav-item">
+                    <span class ="icon">📘</span>
+                    <span class ="label">Study Tracker</span>
+                </div>
 
-            </div>
+                <div class="nav-item">
+                    <span class ="icon">⚙️</span>
+                    <span class ="label">Setting</span>
+                </div>
 
-        </div>
+           </nav>
 
-        <div class="category-stats">
+        </aside>
 
-            <h3>Category Overview</h3>
+        <!-- Main-content -->
+         <main class="main-content">
 
-            <p>💻 DSA: {{ dsa_count }}</p>
+            <header class="header">
 
-            <p>🌐 Web Dev: {{ web_count }}</p>
+                <div class="greeting">
 
-            <p>📚 College: {{ college_count }}</p>
+                    <h2> 🌻Good Morning Aradhya !> </h2>
+                    <p>Lets's make today Productive and Amazing </p>
 
-            <p>🌱 Personal: {{ personal_count }}</p>
+                </div>
 
-        </div>
+            </header>
 
-        <div class="home-buttons">
+            <section class="dashboard-grid">
 
-            <a href="/tasks" class="task-btn">
+            </section>
 
-               Open Task Manager
+            <section class="quick-actions">
 
-            </a>
-            <a href="/notes" class="task-btn">
+            </section>
 
-              Open Notes
-
-            </a>
-        </div>
-        <a href="/pomodoro" class="task-btn">
-
-           🍅 Pomodoro
-
-        </a>
+         </main>
 
     </div>
 
