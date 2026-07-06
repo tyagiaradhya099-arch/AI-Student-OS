@@ -40,6 +40,8 @@ def homepage():
     
     tasks = Task.query.all()
 
+    recent_tasks = Task.query.order_by(Task.id.desc()).limit(4).all()
+
     dsa_count = Task.query.filter_by(category="DSA").count()
 
     web_count = Task.query.filter_by(category="Web Dev").count()
@@ -68,7 +70,8 @@ def homepage():
         dsa_count=dsa_count,
         web_count=web_count,
         college_count=college_count,
-        personal_count=personal_count
+        personal_count=personal_count,
+        recent_tasks=recent_tasks
     )
 
 
@@ -150,15 +153,9 @@ def home():
        tasks = Task.query.all()
 
     # TASK STATS
-    total_tasks = len(tasks)
+    total_tasks = Task.query.count()
 
-    completed_tasks = 0
-
-    for task in tasks:
-
-        if task.done == True:
-
-            completed_tasks += 1
+    completed_tasks = Task.query.filter_by(done=True).count()
 
     remaining_tasks = total_tasks - completed_tasks
 
@@ -226,6 +223,21 @@ def notes():
 def pomodoro():
 
     return render_template("pomodoro.html")
+
+#CALENDER PAGE
+@app.route("/calender")
+def calendar():
+    return render_template("calender.html")
+
+#STUDY TRACKER PAGE
+@app.route("/study")
+def study():
+    return render_template("study.html")
+
+#SETTING PAGE
+@app.route("/setting")
+def setting():
+    return render_template("setting.html")
 
 
 if __name__ == "__main__":

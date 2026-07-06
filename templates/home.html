@@ -27,40 +27,39 @@
 
             <nav class="navigation">
 
-                <div class="nav-item">
-                    <span class ="icon">🏠</span>
-                    <span class ="label">Dashboard</span>
-                </div>
+                <a href="/" class="nav-item active">
+                    <span class="icon">🏠</span>
+                    <span class="label">Dashboard</span>
+                </a>
 
-                <div class="nav-item">
-                    <span class ="icon">📋</span>
-                    <span class ="label">Task Manager</span>
-                </div>
+                <a href="/tasks" class="nav-item">
+                    <span class="icon">📋</span>
+                    <span class="label">Task Manager</span>
+                </a>
 
-                <div class="nav-item">
-                    <span class ="icon">📝</span>
-                    <span class ="label">Notes</span>
-                </div>
+                <a href="/notes" class="nav-item">
+                   <span class="icon">📝</span>
+                   <span class="label">Notes</span>
+                </a>
 
-                <div class="nav-item">
-                    <span class ="icon">🍓</span>
-                    <span class ="label">Pomodoro</span>
-                </div>
+                <a href="/pomodoro" class="nav-item">
+                    <span class="icon">🍅</span>
+                    <span class="label">Pomodoro</span>
+                </a>
+                <a href="/calender" class="nav-item">
+                    <span class="icon">🗓️</span>
+                    <span class="label">Calender</span>
+                </a>
 
-                <div class="nav-item">
-                    <span class ="icon">🗓️</span>
-                    <span class ="label">Calender</span>
-                </div>
+                <a href="/study" class="nav-item">
+                    <span class="icon">📘</span>
+                    <span class="label">Study Tracker</span>
+                </a>
 
-                <div class="nav-item">
-                    <span class ="icon">📘</span>
-                    <span class ="label">Study Tracker</span>
-                </div>
-
-                <div class="nav-item">
-                    <span class ="icon">⚙️</span>
-                    <span class ="label">Setting</span>
-                </div>
+                <a href="/setting" class="nav-item">
+                    <span class="icon">⚙️</span>
+                    <span class="label">Setting</span>
+                </a>
 
            </nav>
 
@@ -73,20 +72,250 @@
 
                 <div class="greeting">
 
-                    <h2> 🌻Good Morning Aradhya !> </h2>
-                    <p>Lets's make today Productive and Amazing </p>
+                    <h2> 🌻Good Morning, Aradhya ! </h2>
+                    <p>Lets's make today Productive and Amazing. </p>
 
+                </div>
+
+                <div class="profile">
+                   👤 Aradhya
                 </div>
 
             </header>
 
+            <section class="stats-grid">
+
+                <div class="dashboard-card">
+                    <h3>Total Tasks</h3>
+                    <p>12</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3> Notes</h3>
+                    <p>2</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Focus Time</h3>
+                    <p>2</p>                   
+                </div>
+
+            </section>
+
             <section class="dashboard-grid">
 
+              <div class="dashboard-card calender-card">
+
+                   <h3>Calender 🗓️ </h3> 
+
+                   <div class="month">
+                      <span>◀</span>
+                      <h4>July 2026</h4>
+                      <span>▶</span>
+                   </div>
+
+                    <div class="weekdays">
+                      <span>Sun</span>
+                      <span>Mon</span>
+                      <span>Tue</span>
+                      <span>Wed</span>
+                      <span>Thu</span>
+                      <span>Fri</span>
+                      <span>Sat</span>
+                    </div>
+
+                    <div class="days">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span>1</span>
+                      <span>2</span>
+                      <span>3</span>
+                      <span>4</span>
+                      <span>5</span>
+                      <span>6</span>
+                      <span class="active-day">7</span>
+                      <span>8</span>
+                      <span>9</span>
+                      <span>10</span>
+                      <span>11</span>
+                      <span>12</span>
+                      <span>13</span>
+                      <span>14</span>
+                      <span>15</span>
+                      <span>16</span>
+                      <span>17</span>
+                      <span>18</span>
+                      <span>19</span>
+                      <span>20</span>
+                      <span>21</span>
+                      <span>22</span>
+                      <span>23</span>
+                      <span>24</span>
+                      <span>25</span>
+                      <span>26</span>
+                      <span>27</span>
+                      <span>28</span>
+                      <span>29</span>
+                      <span>30</span>
+                    </div>
+
+                </div>
+
+                <div class="dashboard-card schedule-card">
+                    <h3>Today's Schedule</h3>
+
+                    <div class="schedule-item">
+                        <span class="time">09:00</span>
+                        <span class="task">DSA practice</span>
+                        <span class="tag study">Study</span>
+                    </div>
+
+                    <div class="schedule-item">
+                        <span class="time">11:00</span>
+                        <span class="task">Web Development</span>
+                        <span class="tag project">Project</span>
+                    </div>
+
+                    <div class="schedule-item">
+                        <span class="time">02:00</span>
+                        <span class="task">College Classes</span>
+                        <span class="tag class">Classes</span>
+                    </div>
+
+                    <div class="schedule-item">
+                        <span class="time">05:30</span>
+                        <span class="task">Revision</span>
+                        <span class="tag revision">Study</span>
+                    </div>
+
+                </div>
+
+                <div class="dashboard-card focus-card">
+                    <h3>Focus Overview</h3>
+
+                    <div class="focus-circle">
+                        <h2>2h 45m</h2>
+                        <p>Total Focus</p>
+                    </div>
+
+                    <div class="Focus-stats">
+
+                        <div>
+                            <span class="dot purple"></span>
+                            Deep Work
+                        </div>
+
+                        <div>1h 40m</div>
+
+                        <div>
+                            <span class="dot blue"></span>
+                            Study
+                        </div>
+
+                        <div>45m</div>
+
+                        <div>
+                            <span class="dot orange"></span>
+                            Breaks
+                        </div>
+
+                        <div>20m</div>
+
+                    </div>
+
+                </div>
+
             </section>
 
-            <section class="quick-actions">
 
-            </section>
+            <!-- Bottom Grid -->
+
+            <section class="bottom-grid">
+
+               <!-- Recent Tasks -->
+
+               <div class="dashboard-card recent-task-card">
+
+                  <h3>Recent Tasks</h3>
+
+                  {% for task in recent_tasks %}
+
+                  <div class="recent-task">
+
+                      <input
+                          type="checkbox"
+                          {% if task.done %}checked{% endif %}
+                          disabled
+                        >
+
+                        <span>{{ task.text }}</span>
+
+                        <span class="priority {{ task.priority|lower }}">
+                          {{ task.priority }}
+                        </span>
+
+                    </div>
+
+                    {% endfor %}
+               </div>
+
+
+                    <!-- Quick Actions -->
+
+                <div class="dashboard-card quick-actions">
+
+                    <h3>Quick Actions</h3>
+
+                    <div class="action-grid">
+
+                       <button class="action-btn">
+                         ➕ Add Task
+                       </button>
+
+                       <button class="action-btn">
+                         📝 New Note
+                       </button>
+
+                      <button class="action-btn">
+                         🍓 Pomodoro
+                      </button>
+
+                       <button class="action-btn">
+                         📅 Calendar
+                       </button>
+
+                </div>
+
+    </div>
+
+
+    <!-- AI Suggestion -->
+
+    <div class="dashboard-card ai-card">
+
+        <h3>🤖 AI Suggestion</h3>
+
+        <div class="ai-icon">
+            🤖
+        </div>
+
+        <p>
+            You usually focus best between
+            <strong>9:00 AM - 11:00 AM</strong>.
+        </p>
+
+        <p>
+            Want me to plan your study schedule for today?
+        </p>
+
+        <button class="ai-btn">
+            ✨ Plan My Day
+        </button>
+
+    </div>
+
+</section>
 
          </main>
 
