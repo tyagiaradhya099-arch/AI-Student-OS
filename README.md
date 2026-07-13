@@ -186,8 +186,7 @@ GitHub:
 https://github.com/tyagiaradhya099-arch
 
 LinkedIn:
-linkedin.com/in/aradhya-tyagi-70338a383
-
+https://www.linkedin.com/in/aradhya-tyagi-70338a383
 ---
 
 ## ⭐ If you like this project
