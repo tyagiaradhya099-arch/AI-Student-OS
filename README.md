@@ -18,8 +18,6 @@
 
 An AI-powered productivity web application built using **Flask** that helps students manage their academic life from one dashboard.
 
-An AI-powered productivity web application built using **Flask** that helps students manage their academic life from one dashboard.
-
 It combines task management, notes, study planning, calendar scheduling, and productivity tools into one simple application.
 
 ## 🌟 Project Highlights
