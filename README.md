@@ -1,8 +1,53 @@
-# 🤖 AI Student OS
+# 🤖 AI Student OS - AI powewerd study suit for students
+
+## Badges
+
+![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
+![Flask](https://img.shields.io/badge/Flask-Web%20Framework-black?logo=flask)
+![HTML5](https://img.shields.io/badge/HTML-5-orange?logo=html5)
+![CSS3](https://img.shields.io/badge/CSS-3-blue?logo=css3)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?logo=javascript)
+![SQLite](https://img.shields.io/badge/Database-SQLite-blue?logo=sqlite)
+
+## Banner
+<p align="center">
+  <img src="Screenshots/banner.png" alt="AI Student OS Banner" width="100%">
+</p>
+
+## Description
+
+An AI-powered productivity web application built using **Flask** that helps students manage their academic life from one dashboard.
 
 An AI-powered productivity web application built using **Flask** that helps students manage their academic life from one dashboard.
 
 It combines task management, notes, study planning, calendar scheduling, and productivity tools into one simple application.
+
+## 🌟 Project Highlights
+
+- 🤖 AI-powered productivity assistant for students
+- 📅 Calendar for scheduling and task organization
+- 📝 Notes management
+- ⏱️ Built-in Pomodoro timer
+- 📚 Study planner
+- 📊 Productivity dashboard
+- 🎨 Responsive and clean user interface
+
+
+## 💡 Why I Built This Project
+
+As a student, I often found myself switching between multiple apps to manage tasks, notes, study sessions, and schedules. I wanted a single platform that could bring everything together while also using AI to make studying more efficient.
+
+AI Student OS is my attempt to build that all-in-one productivity application while improving my skills in Flask, Python, JavaScript, HTML, CSS, Git, and API integration.
+
+## 📑 Table of Contents
+
+- [✨ Features](#-features)
+- [🛠️ Tech Stack](#️-tech-stack)
+- [📷 Screenshots](#-screenshots)
+- [🚀 Installation](#-installation)
+- [📁 Project Structure](#-project-structure)
+- [🎯 Future Improvements](#-future-improvements)
+- [👩‍💻 Author](#-author)
 
 ---
 
