@@ -11,7 +11,7 @@
 
 ## Banner
 <p align="center">
-  <img src="Screenshots/banner.png" alt="AI Student OS Banner" width="100%">
+  <img src="Screenshots/banner.png" width="100%">
 </p>
 
 ## Description
