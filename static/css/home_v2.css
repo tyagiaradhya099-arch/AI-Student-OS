@@ -6,7 +6,7 @@
 
 body{
     font-family:'Poppins',sans-serif;
-    background:#f5f7fb;
+    background:#f0d6e9;
 }
 .home-container{
     display:flex;
@@ -17,40 +17,112 @@ body{
 ===================================== */
 
 .side-bar{
-    width:220px;
-    background:#ffffff;
-    padding:20px 14px;
+    width:190px;
+    background:#cdbac3;
+    padding:12px;
     border-right:1px solid #e5e7eb;
 
     display:flex;
     flex-direction:column;
 }
 /* =====================================
+            focus widget
+
+===================================== */
+
+.focus-widget{
+    margin-top:8px;
+    background:#e4ccd7;
+    border-radius:18px;
+    padding:18px;
+    text-align:center;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.focus-widget h4{
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+.level{
+    font-weight:600;
+    margin-bottom:6px;
+}
+
+.focus-widget p{
+    font-size:13px;
+    color:#777;
+    margin-bottom:15px;
+}
+
+.xp-bar{
+    width:100%;
+    height:8px;
+    background:#ececec;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.xp-fill{
+    width:72%;
+    height:100%;
+    background:#7c6cff;
+}
+
+.focus-widget img{
+    width:110px;
+    margin-top:30px;
+}
+.sidebar-robot{
+    display:flex;
+    justify-content:center;
+    margin-top:-30px;
+    margin-bottom:-20px;
+}
+
+.sidebar-robot img{
+    width:120px;
+    height:auto;
+    opacity:.95;
+    transition:.3s;
+
+    pointer-events: none;
+}
+
+.sidebar-robot img:hover{
+    transform:scale(1.05);
+}
+/* =====================================
             Branding
 ===================================== */
 
 .branding{
-    margin-bottom:40px;
+    text-align:center;
+    margin-bottom:4px;
+    padding-bottom:6px;
+   /* border-bottom:1px solid #f1f5f9;*/
 }
 
 .branding h1{
-    font-size:24px;
+    font-size:16px;
     color:#1f2937;
-    margin-bottom:8px;
+    margin-bottom:4px;
+    
+    
 }
 
 .branding p{
     color:#6b7280;
-    font-size:14px;
+    font-size:12px;
 }
 .main-content{
     flex:1;
-    padding:20px 24px;
+    padding:14px 18px;
 }
 .navigation{
     display:flex;
     flex-direction:column;
-    gap:18px;
+    gap:4px;
 }
 .nav-item{
 
@@ -58,13 +130,14 @@ body{
 
     align-items:center;
 
-    gap:12px;
+    gap:8px;
 
-    padding:14px 24px;
+    padding:7px 10px;
 
     border-radius:12px;
 
     cursor:pointer;
+    font-size:14px;
 }
 .nav-item:hover{
 
@@ -83,8 +156,8 @@ body{
 }
 
 .nav-item.active{
-    background:#eef2ff;
-    color:#4f46e5;
+    background:#e4ccd7;
+    color:black;
     font-weight:600;
 }
 /* ===========================
@@ -95,22 +168,21 @@ body{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:24px;
+    margin-bottom:6px;
 }
 
 /* ===========================
         Greeting
 =========================== */
-
-.greeting h2{
-    font-size:32px;
-    color:#1f2937;
-    margin-bottom:10px;
+.greeting h2 {
+font-size:22px;
+margin-bottom:2px;
+font-weight:700;
 }
-
-.greeting p{
-    color:#6b7280;
-    font-size:16px;
+.greeting p {
+font-size:13px;
+color:#6B7280;
+    
 }
 /* ===========================
         Profile
@@ -118,7 +190,7 @@ body{
 
 .profile{
     background:white;
-    padding:12px 20px;
+    padding:10px 18px;
     border-radius:12px;
     box-shadow:0 4px 12px rgba(0,0,0,0.08);
     font-weight:500;
@@ -130,24 +202,28 @@ body{
 
 .dashboard-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-    margin:30px 0;
+    grid-template-columns:repeat(3,minmax(0,1fr));
 
-    align-items:start;
+    gap:16px;
+
+    margin-top:6px;
 }
-
 /* ===========================
         Dashboard Cards
 =========================== */
 
 .dashboard-card{
-    background:#ffffff;
-    padding:25px;
-    border-radius:16px;
-    box-shadow:0 4px 15px rgba(0,0,0,0.08);
 
-    transition:0.3s;
+    background:white;
+
+    padding:16px;
+
+    border-radius:18px;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.06);
+
+    transition:.3s;
+
 }
 .dashboard-card h3{
     color:#6b7280;
@@ -177,6 +253,33 @@ body{
     align-items:center;
     gap:10px;
 }
+.dashboard-card:nth-child(-n+3){
+
+    min-height:110px;
+
+}
+.stats-card{
+    min-height: 78px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.stats-card h3{
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.stats-card p{
+    font-size: 26px;
+    font-weight: 700;
+    color: #d65c73;
+    margin: 0;
+}
 /* ===========================
       Quick Actions
 =========================== */
@@ -187,6 +290,7 @@ body{
     border-radius:18px;
     margin-bottom:30px;
     box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    height:260px;
 }
 .quick-actions h3{
     font-size:22px;
@@ -218,14 +322,19 @@ body{
     calender
 =========================== */
 .calendar-card{
-    padding:25px;
+    padding:14px;
+    height:270px;
+}
+.calender.card h3{
+    font-size:20px;
 }
 
 .month{
     display:flex;
-    justify-content:space-between;
+    justify-content:center;
     align-items:center;
-    margin:20px 0;
+    margin:4px 0;
+    gap:18px;
 }
 
 .weekdays,
@@ -233,20 +342,29 @@ body{
     display:grid;
     grid-template-columns:repeat(7,1fr);
     text-align:center;
-    gap:12px;
+    gap:4px;
+    font-size:13px;
 }
 
 .weekdays{
     font-weight:600;
     color:#777;
-    margin-bottom:15px;
+    margin-bottom:4px;
 }
 
 .days span{
-    padding:10px;
+    
+    width:26px;
+    height:26px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     border-radius:50%;
-    cursor:pointer;
-    transition:0.3s;
+    font-size:12px;
+   
+}
+.days{
+    row-gap:2px;
 }
 
 .days span:hover{
@@ -257,6 +375,28 @@ body{
     background:#6366f1;
     color:white;
 }
+.calendar-arrow{
+    width:24px;
+    height:24px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#4F7DF3;
+    color:white;
+
+    font-size:11px;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.calendar-arrow:hover{
+    background:#3569f5;
+    transform:scale(1.08);
+}
 
 /* ===========================
     Today's schedule
@@ -266,6 +406,10 @@ body{
     justify-content:space-between;
     align-items:center;
     margin:18px 0;
+    
+}
+.schedule-card {
+    height:270px;
 }
 
 .time{
@@ -310,10 +454,10 @@ body{
 =========================== */
 .focus-circle{
 
-    width:180px;
-    height:180px;
+    width:135px;
+    height:135px;
 
-    border:12px solid #6366f1;
+    border:12px solid #585be9;
     border-radius:50%;
 
     margin:30px auto;
@@ -323,14 +467,20 @@ body{
     justify-content:center;
     align-items:center;
 }
+.focus-card {
+    height:270px;
+}
 
 .focus-circle h2{
-    margin:0;
+    margin:10px 0 4px;
+    font-size:22px;
+    line-height:1;
 }
 
 .focus-circle p{
     color:#777;
-    margin-top:8px;
+    margin:0;
+    font-size:13px;
 }
 
 .focus-stats{
@@ -370,9 +520,10 @@ body{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:25px;
-    margin-top:30px;
+    margin-top:10px;
 
     align-items:start;
+    
 }
 /* ===========================
       Recent Tasks
@@ -446,5 +597,9 @@ body{
 }
 
 .ai-card{
-    min-height:260px;
+    min-height:240px;
+}
+.stats-grid {
+    margin-top:0 !important;
+    gap:12px;
 }

@@ -1,5 +1,17 @@
+import os
+from dotenv import load_dotenv
+from google import genai
+
+load_dotenv()
+api_key = os.getenv("GEMINI_API_KEY")
+
+client = genai.Client(api_key=api_key)
+
+
+
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
+from flask import jsonify
 
 app = Flask(__name__)
 
@@ -33,14 +45,30 @@ class Note(db.Model):
 
     content = db.Column(db.Text)
 
+#POMODORO PAGE
+class FocusSession(db.Model):
+
+    id = db.Column(db.Integer, primary_key=True)
+
+    minutes = db.Column(db.Integer)
+
+    date = db.Column(db.String(50))
+
 
 # HOME PAGE
 @app.route("/")
 def homepage():
     
     tasks = Task.query.all()
+    #focus time
+    focus_time = db.session.query(
+    db.func.sum(FocusSession.minutes)
+    ).scalar() or 0
+    
 
     recent_tasks = Task.query.order_by(Task.id.desc()).limit(4).all()
+
+    notes_count = Note.query.count()
 
     dsa_count = Task.query.filter_by(category="DSA").count()
 
@@ -50,7 +78,7 @@ def homepage():
 
     personal_count = Task.query.filter_by(category="Personal").count()
 
-    total_tasks = len(tasks)
+    total_tasks = Task.query.count()
 
     completed_tasks = 0
 
@@ -62,6 +90,39 @@ def homepage():
 
     remaining_tasks = total_tasks - completed_tasks
 
+    try:
+        response = client.models.generate_content(
+            model="gemini-3.1-flash-lite",
+            contents=f"""
+    You are a productivity coach.
+
+    The user has:
+    - {remaining_tasks} pending tasks
+    - {completed_tasks} completed tasks today
+    - {focus_time} minutes of focus today
+
+    Give exactly 3 short productivity tips.
+
+    Rules:
+    - maximum 7 words each.
+    - No explanations.
+    - No numbering.
+    - One suggestion per line.
+    """
+    )
+        print(response)
+        print("TEXT =",response.text)
+
+        suggestions = response.text.strip().split("\n")
+
+    except Exception as e:
+        suggestions = [
+            "Complete one pending task today.",
+            "Do one Pomodoro session.",
+            "Take a 5-minute break after studying."
+        ]
+
+      
     return render_template(
         "home.html",
         total_tasks=total_tasks,
@@ -71,7 +132,12 @@ def homepage():
         web_count=web_count,
         college_count=college_count,
         personal_count=personal_count,
-        recent_tasks=recent_tasks
+        recent_tasks=recent_tasks,
+        notes_count=notes_count,
+        focus_time=focus_time,
+        suggestions=suggestions
+        
+        
     )
 
 
@@ -159,12 +225,18 @@ def home():
 
     remaining_tasks = total_tasks - completed_tasks
 
+    if total_tasks == 0:
+        progress = 0
+    else:
+        progress = int((completed_tasks / total_tasks) * 100)
+
     return render_template(
         "index.html",
         tasks=tasks,
         total_tasks=total_tasks,
         completed_tasks=completed_tasks,
-        remaining_tasks=remaining_tasks
+        remaining_tasks=remaining_tasks,
+        progress=progress
     )
 
 
@@ -173,8 +245,11 @@ with app.app_context():
 
     db.create_all()
 
+    
 
-    # NOTES PAGE
+
+
+# NOTES PAGE
 @app.route("/notes", methods=["GET", "POST"])
 def notes():
 
@@ -224,15 +299,96 @@ def pomodoro():
 
     return render_template("pomodoro.html")
 
+@app.route("/save-focus", methods=["POST"])
+def save_focus():
+
+    minutes = request.json["minutes"]
+
+    session = FocusSession(
+        minutes=minutes,
+        date="2026-07-08"
+    )
+
+    db.session.add(session)
+    db.session.commit()
+
+    return jsonify({"success": True})
+
 #CALENDER PAGE
-@app.route("/calender")
+@app.route("/calendar")
 def calendar():
-    return render_template("calender.html")
+
+    tasks = Task.query.order_by(Task.due_date).all()
+
+    return render_template(
+        "calendar.html",
+        tasks=tasks
+    )
 
 #STUDY TRACKER PAGE
 @app.route("/study")
 def study():
-    return render_template("study.html")
+
+    dsa = Task.query.filter_by(category="DSA").count()
+
+    web = Task.query.filter_by(category="Web Dev").count()
+
+    college = Task.query.filter_by(category="College").count()
+
+    personal = Task.query.filter_by(category="Personal").count()
+
+    total = dsa + web + college + personal
+
+    return render_template(
+        "study.html",
+        dsa=dsa,
+        web=web,
+        college=college,
+        personal=personal,
+        total=total
+    )
+
+@app.route("/study-ai", methods=["POST"])
+def study_ai():
+
+    prompt = request.form["prompt"]
+
+    try:
+        response = client.models.generate_content(
+            model="gemini-3.1-flash-lite",
+            contents=f"""
+            You are an expert study mentor.
+
+            {prompt}
+
+            Give a practical study plan.
+            Keep it under 250 words.
+            Use bullet points.
+            """
+        )
+
+        ai_response = response.text.strip()
+
+    except Exception as e:
+        ai_response = f"AI is temporarily unavailable.\n\n{e}"
+
+    dsa = Task.query.filter_by(category="DSA").count()
+    web = Task.query.filter_by(category="Web Dev").count()
+    college = Task.query.filter_by(category="College").count()
+    personal = Task.query.filter_by(category="Personal").count()
+
+    total = dsa + web + college + personal
+
+    return render_template(
+        "study.html",
+        dsa=dsa,
+        web=web,
+        college=college,
+        personal=personal,
+        total=total,
+        ai_response=ai_response
+    )
+
 
 #SETTING PAGE
 @app.route("/setting")

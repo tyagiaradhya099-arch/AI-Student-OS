@@ -1,0 +1,165 @@
+/* ===========================
+        TASK MANAGER
+=========================== */
+
+.task-container{
+    max-width:1200px;
+    margin:40px auto;
+    padding:25px;
+}
+
+.task-container h1{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:30px;
+    color:#222;
+}
+
+/* ===========================
+        STATS
+=========================== */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-bottom:25px;
+}
+
+.stat-box{
+    background:#fff;
+    border-radius:18px;
+    padding:18px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.stat-box h3{
+    margin:0;
+    color:#666;
+    font-size:18px;
+}
+
+.stat-box p{
+    margin-top:12px;
+    font-size:32px;
+    font-weight:700;
+    color:#ff5f8f;
+}
+
+/* ===========================
+        CARDS
+=========================== */
+
+.card-section{
+    background:white;
+    border-radius:20px;
+    padding:22px;
+    margin-bottom:22px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.card-section h2{
+    margin-top:0;
+    margin-bottom:18px;
+    color:#222;
+}
+
+/* ===========================
+        INPUTS
+=========================== */
+
+.input-section{
+    display:grid;
+    grid-template-columns:1fr 1fr 2fr 1.5fr auto;
+    gap:15px;
+}
+
+.card-section form{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.card-section input,
+.card-section select{
+    flex:1;
+}
+
+/* ===========================
+        TASK LIST
+=========================== */
+
+ul{
+    padding:0;
+    margin:0;
+}
+
+li{
+    background:#fafafa;
+    border-left:5px solid #ff6b9d;
+    border-radius:16px;
+    padding:18px;
+    margin-bottom:14px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    transition:.25s;
+}
+
+li:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
+}
+
+li strong{
+    font-size:17px;
+}
+
+li small{
+    color:#777;
+}
+
+/* ===========================
+        BUTTONS
+=========================== */
+
+li button{
+    margin-left:8px;
+}
+
+button{
+    transition:.25s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+}
+
+/* ===========================
+        RESPONSIVE
+=========================== */
+
+@media(max-width:900px){
+
+.stats{
+    grid-template-columns:1fr;
+}
+
+.input-section{
+    grid-template-columns:1fr;
+}
+
+.card-section form{
+    flex-direction:column;
+}
+
+li{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:15px;
+}
+
+}

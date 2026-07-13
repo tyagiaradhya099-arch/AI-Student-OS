@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Study Tracker</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="study-container">
+
+    <h1>📚 Study Tracker</h1>
+
+    <p class="study-subtitle">
+        Track your learning progress.
+    </p>
+
+    <div class="top-summary">
+
+        <div class="summary-box">
+            <h2>{{ total }}</h2>
+            <p>Total Tasks</p>
+        </div>
+
+        <div class="summary-box">
+            <h2>4</h2>
+            <p>Subjects</p>
+        </div>
+
+    </div>
+
+    <div class="progress-list">
+
+        <div class="progress-item">
+
+            <div class="title-row">
+                <span>🟣 DSA</span>
+                <span>{{ dsa }}</span>
+            </div>
+
+            <progress value="{{ dsa }}" max="{{ total if total else 1 }}"></progress>
+
+        </div>
+
+        <div class="progress-item">
+
+            <div class="title-row">
+                <span>💻 Web Development</span>
+                <span>{{ web }}</span>
+            </div>
+
+            <progress value="{{ web }}" max="{{ total if total else 1 }}"></progress>
+
+        </div>
+
+        <div class="progress-item">
+
+            <div class="title-row">
+                <span>🏫 College</span>
+                <span>{{ college }}</span>
+            </div>
+
+            <progress value="{{ college }}" max="{{ total if total else 1 }}"></progress>
+
+        </div>
+
+        <div class="progress-item">
+
+            <div class="title-row">
+                <span>🌱 Personal</span>
+                <span>{{ personal }}</span>
+            </div>
+
+            <progress value="{{ personal }}" max="{{ total if total else 1 }}"></progress>
+
+        </div>
+
+    </div>
+
+    <div class="ai-section">
+
+        <h2>🤖 AI Study Assistant</h2>
+
+        <p class="ai-tip">
+             Ask anything about your studies, revision plan, coding roadmap or exam preparation.
+        </p>
+
+        <form action="/study-ai" method="POST">
+
+            <textarea
+                name="prompt"
+                placeholder="Examples:
+• Create a 7-day DSA study plan
+• Explain Binary Search simply
+• Help me prepare for tomorrow's DBMS exam"
+                required></textarea>
+
+            <button class="ai-btn" type="submit">
+               🚀 Generate Study Plan
+           </button>
+
+        </form>
+
+        {% if ai_response %}
+
+        <div class="ai-response">
+            <h3>📋 AI Response</h3>
+            <p class="ai-text">{{ ai_response }}</p>
+        </div>
+
+        {% endif %}
+
+    </div>
+
+    <a href="/" class="back-btn">
+        ← Dashboard
+    </a>
+
+</div>
+
+</body>
+
+</html>

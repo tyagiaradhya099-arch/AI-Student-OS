@@ -171,6 +171,20 @@ function changeSession(){
 
         updateTimer();
 
+        fetch("/save-focus", {
+
+          method: "POST",
+
+          headers: {
+          "Content-Type": "application/json"
+          },
+
+          body: JSON.stringify({
+          minutes: Number(focusInput.value)
+          })
+
+        });
+
         alert("🎉 One Pomodoro Cycle Completed!");
 
     }

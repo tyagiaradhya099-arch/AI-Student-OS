@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calendar</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/calendar.css') }}">
+
+</head>
+
+<body>
+
+    <h1 class="calendar-title">🗓️ Calendar & Deadlines</h1>
+
+<div class="calendar-page">
+    
+
+    <!-- LEFT SIDE -->
+
+    <div class="calendar-box">
+
+        <div class="calendar-header">
+
+            
+
+            <button id="prevMonth">◀</button>
+
+            <h2 id="monthYear"></h2>
+
+            <button id="nextMonth">▶</button>
+
+        </div>
+
+        <div class="weekdays">
+
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+
+        </div>
+
+        <div id="calendarDays" class="calendar-days"></div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+
+    <div class="task-panel">
+
+        <h2>📋 Upcoming Tasks</h2>
+
+        {% if tasks %}
+
+            {% for task in tasks %}
+
+            <div class="task-card">
+
+                <h3>{{ task.text }}</h3>
+
+                <p>📅 {{ task.due_date }}</p>
+
+                <p>{{ task.category }}</p>
+
+                {% if task.completed %}
+
+                    <span class="completed">Completed</span>
+
+                {% else %}
+
+                    <span class="pending">Pending</span>
+
+                {% endif %}
+
+            </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p>No Tasks Available</p>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+<div class="back-home">
+
+    <a href="/">← Back to Dashboard</a>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/calendar.js') }}"></script>
+
+</body>
+
+</html>
