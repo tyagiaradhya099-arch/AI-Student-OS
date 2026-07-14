@@ -20,6 +20,10 @@ An AI-powered productivity web application built using **Flask** that helps stud
 
 It combines task management, notes, study planning, calendar scheduling, and productivity tools into one simple application.
 
+## 🌐 Live Demo
+
+🚀 https://ai-student-os.onrender.com/
+
 ## 🌟 Project Highlights
 
 - 🤖 AI-powered productivity assistant for students
